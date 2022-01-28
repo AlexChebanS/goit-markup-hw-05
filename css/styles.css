@@ -97,6 +97,7 @@ a {
 }
 
 .header-list {
+  height: 100%;
   display: flex;
 }
 .header-list .header-item:not(:last-child) {
@@ -111,6 +112,9 @@ a {
   letter-spacing: 0.02em;
   color: var(--header-text-color);
 }
+.header-item {
+  position: relative;
+}
 .header-link:hover,
 .header-link:focus {
   color: var(--accent-text-color);
@@ -118,6 +122,21 @@ a {
 .header-list .header-link.current {
   color: var(--accent-text-color);
 }
+.header-link::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: var(--accent-text-color);
+  border-radius: 2px;
+  margin-top: 28px;
+  opacity: 0;
+  position: absolute;
+}
+.header-link:hover::after {
+  opacity: 1;
+}
+
 .header-link-contact {
   display: flex;
   align-items: center;
@@ -232,9 +251,36 @@ a {
 }
 .product-list {
   display: flex;
+  
 }
 .product-item + .product-item {
   margin-left: 30px;
+}
+.product-item {
+  position: relative;
+}
+.product-item::before {
+  display: inline-block;
+  position: absolute;
+  contain: "";
+  width: 100%;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+  
+}
+
+.product-text {
+  position: absolute;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  bottom: 27px;
+  
+}
 }
 
 /*-------------TEAM------------*/
